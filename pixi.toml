@@ -1,0 +1,25 @@
+[workspace]
+name = "mamba3-mojo"
+authors = ["User <user@example.com>"]
+channels = ["https://conda.modular.com/max-nightly/", "conda-forge"]
+platforms = ["linux-64", "linux-aarch64"]
+
+[dependencies]
+python = ">=3.10"
+ninja = "*"
+modular = "*"
+mojo = ">=0.26.3.0.dev2026032218"
+
+[pypi-dependencies]
+torch = ">=2.0"
+triton = ">=2.1.0"
+einops = "*"
+transformers = "*"
+packaging = "*"
+setuptools = "*"
+quack-kernels = "==0.3.1"
+
+[tasks]
+install-mamba = "pip install -e mamba"
+benchmark = "python scripts/benchmark.py"
+test-correctness = "python scripts/test_correctness.py"
